@@ -10,8 +10,6 @@ font_data = ExtResource( 2 )
 font_data = ExtResource( 2 )
 
 [node name="UI" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -21,8 +19,13 @@ __meta__ = {
 [node name="Interface" type="GraphEdit" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -820.0
+margin_left = 200.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 824, 600 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_offset = Vector2( -291, 0 )
 snap_distance = 25
 zoom_min = 1.0
 zoom_max = 1.0
@@ -46,6 +49,7 @@ margin_right = 200.0
 margin_bottom = 10.0
 rect_min_size = Vector2( 0, 10 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -68,6 +72,7 @@ margin_right = 200.0
 margin_bottom = 58.0
 rect_min_size = Vector2( 0, 10 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -97,6 +102,7 @@ margin_right = 200.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 0, 10 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -182,6 +188,9 @@ margin_top = 444.0
 margin_right = 200.0
 margin_bottom = 454.0
 rect_min_size = Vector2( 0, 10 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Clear Connections" type="Button" parent="Menu"]
 margin_top = 458.0

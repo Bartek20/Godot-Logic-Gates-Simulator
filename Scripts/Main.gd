@@ -16,10 +16,7 @@ var XNOR = SCHEMATIC.get_node('./XNOR')
 
 
 func _ready():
-	print('Program started succesfully :).')
-	for amount in range(0, 2):
-		Global.parts[amount] = 0
-	Global.Blocker()
+	Global.Runner()
 
 func _on_Interface_connection_request(from, from_port, to, to_port):
 	for item in $Interface.get_connection_list():
@@ -33,81 +30,33 @@ func _on_Interface_disconnection_request(from, from_port, to, to_port):
 
 
 func _on_Input_pressed():
-	if (Global.parts[0] < Global.limits[0]):
-		var IN_Model = IN.duplicate()
-		$Interface.add_child(IN_Model)
-		IN_Model.offset = Vector2(40, 40)
-		Global.parts[0] += 1
-		Global.parts[2] += 1
-		if (Global.parts[0] >= Global.limits[0]):
-			print ('You reached max amount of input elements.')
-			$Menu/Input.text = 'MAX Input reached...'
-			$Menu/Input.disabled = true
-	Global.Blocker()
+	Global.Adder('Input')
 
 func _on_Output_pressed():
-	if (Global.parts[1] < Global.limits[1]):
-		var OUT_Model = OUT.duplicate()
-		$Interface.add_child(OUT_Model)
-		OUT_Model.offset = Vector2(40, 40)
-		Global.parts[1] += 1
-		Global.parts[2] += 1
-		if (Global.parts[1] >= Global.limits[1]):
-			print ('You reached max amount of output elements.')
-			$Menu/Output.text = 'MAX Output reached...'
-			$Menu/Output.disabled = true
-	Global.Blocker()
+	Global.Adder('Output')
 
 
 
 func _on_NOT_pressed():
-	var NOT_Model = NOT.duplicate()
-	$Interface.add_child(NOT_Model)
-	NOT_Model.offset = Vector2(40, 40)
-	Global.parts[2] += 1
-	Global.Blocker()
+	Global.Adder('NOT')
 
 func _on_AND_pressed():
-	var AND_Model = AND.duplicate()
-	$Interface.add_child(AND_Model)
-	AND_Model.offset = Vector2(40, 40)
-	Global.parts[2] += 1
-	Global.Blocker()
+	Global.Adder('AND')
 
 func _on_NAND_pressed():
-	var NAND_Model = NAND.duplicate()
-	$Interface.add_child(NAND_Model)
-	NAND_Model.offset = Vector2(40, 40)
-	Global.parts[2] += 1
-	Global.Blocker()
+	Global.Adder('NAND')
 
 func _on_OR_pressed():
-	var OR_Model = OR.duplicate()
-	$Interface.add_child(OR_Model)
-	OR_Model.offset = Vector2(40, 40)
-	Global.parts[2] += 1
-	Global.Blocker()
+	Global.Adder('OR')
 
 func _on_NOR_pressed():
-	var NOR_Model = NOR.duplicate()
-	$Interface.add_child(NOR_Model)
-	NOR_Model.offset = Vector2(40, 40)
-	Global.parts[2] += 1
-	Global.Blocker()
+	Global.Adder('NOR')
 
 func _on_XOR_pressed():
-	var XOR_Model = XOR.duplicate()
-	$Interface.add_child(XOR_Model)
-	XOR_Model.offset = Vector2(40, 40)
-	Global.parts[2] += 1
-	Global.Blocker()
+	Global.Adder('XOR')
 
 func _on_XNOR_pressed():
-	var XNOR_Model = XNOR.duplicate()
-	$Interface.add_child(XNOR_Model)
-	XNOR_Model.offset = Vector2(40, 40)
-	Global.parts[2] += 1
-	Global.Blocker()
+	Global.Adder('XNOR')
 
 
 	
@@ -124,7 +73,7 @@ func _on_Clear_Items_pressed():
 	for node in nodes:
 		if node is GraphNode:
 			node.queue_free()
-	for amount in range(0,2):
+	for amount in range(0,3):
 		Global.parts[amount] = 0
 	Global.Blocker()
 	$"Menu/Clear Items".text = 'Items Cleared'
