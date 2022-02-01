@@ -1,17 +1,10 @@
 extends Node
 
+var SCHEMATIC = load("res://Schematic.tscn").instance()
+
 # Syntax [in, out, all]
 var limits = [5, 1, 30]
 var parts = [0, 0, 0] # Do not edit
-
-var SCHEMATIC = load("res://Schematic.tscn").instance()
-
-
-var NAND = SCHEMATIC.get_node('./NAND')
-var OR = SCHEMATIC.get_node('./OR')
-var NOR = SCHEMATIC.get_node('./NOR')
-var XOR = SCHEMATIC.get_node('./XOR')
-var XNOR = SCHEMATIC.get_node('./XNOR')
 
 
 
@@ -21,11 +14,20 @@ func Runner():
 		parts[amount] = 0
 	Blocker()
 
+func Connector(mode, from, from_port, to, to_port):
+	if (mode == 'Connect'):
+		for item in self.get_node("/root/UI/Interface").get_connection_list():
+			if item.to == to and item.to_port == to_port:
+				return
+		self.get_node("/root/UI/Interface").connect_node(from, from_port, to, to_port)
+	else:
+		self.get_node("/root/UI/Interface").disconnect_node(from, from_port, to, to_port)
+
 func Adder(item):
 	var Part = ''
 	if (item == 'Input'):
 		if (parts[0] < limits[0]):
-			Part = SCHEMATIC.get_node('./Input').duplicate()
+			Part = SCHEMATIC.get_node(item).duplicate()
 			parts[0] += 1
 			if (parts[0] >= limits[0]):
 				print ('You reached max amount of input elements.')
@@ -33,7 +35,7 @@ func Adder(item):
 				self.get_node("/root/UI/Menu/Input").disabled = true
 	elif (item == 'Output'):
 		if (parts[1] < limits[1]):
-			Part = SCHEMATIC.get_node('./Output').duplicate()
+			Part = SCHEMATIC.get_node(item).duplicate()
 			parts[1] += 1
 			if (parts[1] >= limits[1]):
 				print ('You reached max amount of output elements.')
@@ -70,10 +72,28 @@ func Remover(item, node):
 	parts[2] -= 1
 	if (item == 'Input'):
 		parts[0] -= 1
-		node.get_node("../../").get_child(1).get_child(3).text = 'Input'
-		node.get_node("../../").get_child(1).get_child(3).disabled = false
 	elif (item == "Output"):
 		parts[1] -= 1
-		node.get_node("../../").get_child(1).get_child(4).text = 'Output'
-		node.get_node("../../").get_child(1).get_child(4).disabled = false
 	Blocker()
+
+func Clearer(mode):
+	if (mode == 'Connections'):
+		self.get_node("/root/UI/Interface").clear_connections()
+		self.get_node("/root/UI/Menu/Clear Connections").text = 'Connections Cleared'
+		self.get_node("/root/UI/Menu/Clear Connections").disabled = true
+		yield(get_tree().create_timer(1), "timeout")
+		self.get_node("/root/UI/Menu/Clear Connections").text = 'Clear Connections'
+		self.get_node("/root/UI/Menu/Clear Connections").disabled = false
+	else:
+		var nodes = self.get_node("/root/UI/Interface").get_children()
+		for node in nodes:
+			if node is GraphNode:
+				node.queue_free()
+		for amount in range(0,3):
+			parts[amount] = 0
+		Blocker()
+		self.get_node("/root/UI/Menu/Clear Items").text = 'Items Cleared'
+		self.get_node("/root/UI/Menu/Clear Items").disabled = true
+		yield(get_tree().create_timer(1), "timeout")
+		self.get_node("/root/UI/Menu/Clear Items").text = 'Clear Items'
+		self.get_node("/root/UI/Menu/Clear Items").disabled = false
