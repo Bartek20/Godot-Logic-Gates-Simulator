@@ -449,6 +449,7 @@ margin_right = 134.0
 margin_bottom = 114.0
 
 [connection signal="close_request" from="Input" to="Input" method="_on_Input_close_request"]
+[connection signal="item_selected" from="Input/Input" to="Input" method="_on_Input_item_selected"]
 [connection signal="close_request" from="Output" to="Output" method="_on_Output_close_request"]
 [connection signal="close_request" from="NOT" to="NOT" method="_on_NOT_close_request"]
 [connection signal="close_request" from="AND" to="AND" method="_on_AND_close_request"]

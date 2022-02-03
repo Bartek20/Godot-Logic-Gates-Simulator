@@ -15,3 +15,12 @@ func Input_Value():
 
 func _on_Input_close_request():
 	Global.Remover('Input', self.get_node("."))
+
+
+func _on_Input_item_selected(index):
+	if (index == 1):
+		plug_out[0] = 0
+		set_slot_color_right(1, Color(255, 0, 0, 1))
+	elif (index == 2):
+		plug_out[0] = 1
+		set_slot_color_right(1, Color(0, 255, 0, 1))

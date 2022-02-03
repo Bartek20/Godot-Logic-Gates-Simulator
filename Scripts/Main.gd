@@ -15,7 +15,6 @@ func _on_Interface_connection_request(from, from_port, to, to_port):
 func _on_Interface_disconnection_request(from, from_port, to, to_port):
 	Global.Connector('Disconnect', from, from_port, to, to_port)
 
-
 #####
 #
 # Adding In / Out
@@ -62,7 +61,5 @@ func _on_Clear_Items_pressed():
 #
 #####
 func _on_Start_pressed():
-	var CONNECTIONS_List = $Interface.get_connection_list()
-	if (CONNECTIONS_List.empty() == false):
-		for i in range(0, CONNECTIONS_List.size()):
-			print(CONNECTIONS_List[i])
+	Logic.Worker()
+	Logic.Worker()
