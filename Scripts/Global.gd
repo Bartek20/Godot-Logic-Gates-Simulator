@@ -21,6 +21,7 @@ func Connector(mode, from, from_port, to, to_port):
 				return
 		self.get_node("/root/UI/Interface").connect_node(from, from_port, to, to_port)
 	else:
+		Logic.Cleaner()
 		self.get_node("/root/UI/Interface").disconnect_node(from, from_port, to, to_port)
 
 func Adder(item):
@@ -78,7 +79,6 @@ func Remover(item, node):
 
 func Clearer(mode):
 	if (mode == 'Connections'):
-		
 		Logic.Cleaner()
 		self.get_node("/root/UI/Interface").clear_connections()
 		self.get_node("/root/UI/Menu/Clear Connections").text = 'Connections Cleared'

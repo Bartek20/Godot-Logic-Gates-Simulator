@@ -29,7 +29,7 @@ __meta__ = {
 
 [node name="Input" type="GraphNode" parent="."]
 margin_right = 150.0
-margin_bottom = 80.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 150, 60 )
 title = "Input"
 show_close = true
@@ -59,23 +59,30 @@ margin_top = 24.0
 margin_right = 134.0
 margin_bottom = 38.0
 
-[node name="Input" type="OptionButton" parent="Input"]
+[node name="CheckButton" type="CheckButton" parent="Input"]
 margin_left = 16.0
 margin_top = 39.0
 margin_right = 134.0
-margin_bottom = 59.0
-text = "Choose state"
+margin_bottom = 79.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "0 1"
+clip_text = true
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Spacing #2" type="Label" parent="Input"]
 margin_left = 16.0
-margin_top = 60.0
+margin_top = 80.0
 margin_right = 134.0
-margin_bottom = 74.0
+margin_bottom = 94.0
 
 [node name="Output" type="GraphNode" parent="."]
-margin_top = 84.0
+margin_top = 104.0
 margin_right = 150.0
-margin_bottom = 158.0
+margin_bottom = 178.0
 rect_min_size = Vector2( 150, 60 )
 title = "Output"
 show_close = true
@@ -120,9 +127,9 @@ margin_right = 134.0
 margin_bottom = 68.0
 
 [node name="NOT" type="GraphNode" parent="."]
-margin_top = 162.0
+margin_top = 182.0
 margin_right = 150.0
-margin_bottom = 282.0
+margin_bottom = 302.0
 rect_min_size = Vector2( 0, 75 )
 title = "NOT"
 show_close = true
@@ -167,9 +174,9 @@ margin_right = 134.0
 margin_bottom = 114.0
 
 [node name="AND" type="GraphNode" parent="."]
-margin_top = 286.0
+margin_top = 306.0
 margin_right = 150.0
-margin_bottom = 406.0
+margin_bottom = 426.0
 rect_min_size = Vector2( 0, 75 )
 title = "AND"
 show_close = true
@@ -214,9 +221,9 @@ margin_right = 134.0
 margin_bottom = 114.0
 
 [node name="NAND" type="GraphNode" parent="."]
-margin_top = 410.0
+margin_top = 430.0
 margin_right = 150.0
-margin_bottom = 530.0
+margin_bottom = 550.0
 rect_min_size = Vector2( 0, 75 )
 title = "NAND"
 show_close = true
@@ -261,9 +268,9 @@ margin_right = 134.0
 margin_bottom = 114.0
 
 [node name="OR" type="GraphNode" parent="."]
-margin_top = 534.0
+margin_top = 554.0
 margin_right = 150.0
-margin_bottom = 654.0
+margin_bottom = 674.0
 rect_min_size = Vector2( 0, 75 )
 title = "OR"
 show_close = true
@@ -308,9 +315,9 @@ margin_right = 134.0
 margin_bottom = 114.0
 
 [node name="NOR" type="GraphNode" parent="."]
-margin_top = 658.0
+margin_top = 678.0
 margin_right = 150.0
-margin_bottom = 778.0
+margin_bottom = 798.0
 rect_min_size = Vector2( 0, 75 )
 title = "NOR"
 show_close = true
@@ -355,9 +362,9 @@ margin_right = 134.0
 margin_bottom = 114.0
 
 [node name="XOR" type="GraphNode" parent="."]
-margin_top = 782.0
+margin_top = 802.0
 margin_right = 150.0
-margin_bottom = 902.0
+margin_bottom = 922.0
 rect_min_size = Vector2( 0, 75 )
 title = "XOR"
 show_close = true
@@ -402,9 +409,9 @@ margin_right = 134.0
 margin_bottom = 114.0
 
 [node name="XNOR" type="GraphNode" parent="."]
-margin_top = 906.0
+margin_top = 926.0
 margin_right = 150.0
-margin_bottom = 1026.0
+margin_bottom = 1046.0
 rect_min_size = Vector2( 0, 75 )
 title = "XNOR"
 show_close = true
@@ -449,7 +456,7 @@ margin_right = 134.0
 margin_bottom = 114.0
 
 [connection signal="close_request" from="Input" to="Input" method="_on_Input_close_request"]
-[connection signal="item_selected" from="Input/Input" to="Input" method="_on_Input_item_selected"]
+[connection signal="toggled" from="Input/CheckButton" to="Input" method="_on_CheckButton_toggled"]
 [connection signal="close_request" from="Output" to="Output" method="_on_Output_close_request"]
 [connection signal="close_request" from="NOT" to="NOT" method="_on_NOT_close_request"]
 [connection signal="close_request" from="AND" to="AND" method="_on_AND_close_request"]
