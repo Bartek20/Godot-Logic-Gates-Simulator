@@ -78,6 +78,8 @@ func Remover(item, node):
 
 func Clearer(mode):
 	if (mode == 'Connections'):
+		
+		Logic.Cleaner()
 		self.get_node("/root/UI/Interface").clear_connections()
 		self.get_node("/root/UI/Menu/Clear Connections").text = 'Connections Cleared'
 		self.get_node("/root/UI/Menu/Clear Connections").disabled = true

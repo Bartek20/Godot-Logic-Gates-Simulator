@@ -9,6 +9,24 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func Cleaner():
+	var Interface = self.get_node("/root/UI/Interface")
+	var Childrens = Interface.get_child_count()
+	
+	for i in Childrens:
+		if Interface.get_child(i) is GraphNode:
+			var node = Interface.get_child(i)
+			for j in range(0,2):
+				if (node.is_slot_enabled_left(j) == true):
+					node.set_slot_color_left(j, Color(0, 255, 255, 1))
+				if (node.is_slot_enabled_right(j) == true):
+					node.set_slot_color_right(j, Color(0, 255, 255, 1))
+			if (node.plug_in.size() == 1):
+				node.plug_in = [0]
+			else:
+				node.plug_in = [0, 0]
+			node.Calc()
+
 func Worker():
 	var Interface = self.get_node("/root/UI/Interface")
 	var Connections = Interface.get_connection_list()
