@@ -5,6 +5,9 @@ var plug_out = [0]
 
 
 
+func _ready():
+	Calc()
+
 func _on_XOR_close_request():
 	Global.Remover('XOR', self.get_node("."))
 

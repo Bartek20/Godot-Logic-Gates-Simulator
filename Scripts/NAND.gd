@@ -5,6 +5,9 @@ var plug_out = [0]
 
 
 
+func _ready():
+	Calc()
+
 func _on_NAND_close_request():
 	Global.Remover('NAND', self.get_node("."))
 

@@ -5,6 +5,9 @@ var plug_out = [0]
 
 
 
+func _ready():
+	Calc()
+
 func _on_AND_close_request():
 	Global.Remover('AND', self.get_node("."))
 

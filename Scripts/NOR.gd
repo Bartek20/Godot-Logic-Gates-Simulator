@@ -5,6 +5,9 @@ var plug_out = [0]
 
 
 
+func _ready():
+	Calc()
+
 func _on_NOR_close_request():
 	Global.Remover('NOR', self.get_node("."))
 
