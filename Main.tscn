@@ -228,6 +228,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Right Click Menu" type="PopupMenu" parent="."]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Groups" type="Tree" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="connection_request" from="Interface" to="." method="_on_Interface_connection_request"]
 [connection signal="disconnection_request" from="Interface" to="." method="_on_Interface_disconnection_request"]
 [connection signal="pressed" from="Menu/Input" to="." method="_on_Input_pressed"]
@@ -242,3 +254,4 @@ __meta__ = {
 [connection signal="pressed" from="Menu/Clear Connections" to="." method="_on_Clear_Connections_pressed"]
 [connection signal="pressed" from="Menu/Clear Items" to="." method="_on_Clear_Items_pressed"]
 [connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
+[connection signal="id_pressed" from="Right Click Menu" to="." method="_on_Right_Click_Menu_id_pressed"]

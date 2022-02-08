@@ -2,8 +2,17 @@ extends Control
 
 
 
+#####
+#
+# Program Startup
+#
+#####
 func _ready():
 	Global.Runner()
+	Global.RCM()
+
+func _input(event):
+	EventHandler.App(event)
 
 #####
 #
@@ -61,5 +70,20 @@ func _on_Clear_Items_pressed():
 #
 #####
 func _on_Start_pressed():
-	Logic.Worker()
-	Logic.Worker()
+	#Logic.Worker()
+	#Logic.Worker()
+	pass
+
+
+func _on_Right_Click_Menu_id_pressed(id):
+	match(id):
+		0: Global.Adder('Input')
+		1: Global.Adder('Output')
+		2: Global.Adder('NOT')
+		3: Global.Adder('AND')
+		4: Global.Adder('NAND')
+		5: Global.Adder('OR')
+		6: Global.Adder('NOR')
+		7: Global.Adder('XOR')
+		8: Global.Adder('XNOR')
+		#9: for _i in range(0,2): Logic.Worker()

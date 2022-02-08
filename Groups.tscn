@@ -1,0 +1,145 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Groups/Input.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Groups/Output.gd" type="Script" id=2]
+
+[node name="Group" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Creator" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphEdit" type="GraphEdit" parent="Creator"]
+margin_right = 1024.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 0, 550 )
+use_snap = false
+minimap_enabled = false
+
+[node name="Input" type="GraphNode" parent="Creator/GraphEdit"]
+margin_top = 60.0
+margin_right = 130.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 130, 60 )
+mouse_filter = 1
+title = "Input"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Creator/GraphEdit/Input"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 114.0
+margin_bottom = 44.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Creator/GraphEdit/Input/VBoxContainer"]
+margin_right = 98.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Remove" type="Button" parent="Creator/GraphEdit/Input/VBoxContainer/HBoxContainer"]
+margin_right = 47.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "-"
+
+[node name="Add" type="Button" parent="Creator/GraphEdit/Input/VBoxContainer/HBoxContainer"]
+margin_left = 51.0
+margin_right = 98.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "+"
+
+[node name="Output" type="GraphNode" parent="Creator/GraphEdit"]
+margin_right = 130.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 130, 60 )
+mouse_filter = 1
+size_flags_horizontal = 15
+size_flags_vertical = 15
+title = "Output"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Creator/GraphEdit/Output"]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 114.0
+margin_bottom = 44.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Creator/GraphEdit/Output/VBoxContainer"]
+margin_right = 98.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Remove" type="Button" parent="Creator/GraphEdit/Output/VBoxContainer/HBoxContainer"]
+margin_right = 47.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "-"
+
+[node name="Add" type="Button" parent="Creator/GraphEdit/Output/VBoxContainer/HBoxContainer"]
+margin_left = 51.0
+margin_right = 98.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Creator"]
+margin_top = 554.0
+margin_right = 1024.0
+margin_bottom = 604.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="Cancel" type="Button" parent="Creator/HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Cancel"
+
+[node name="Submit" type="Button" parent="Creator/HBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Submit"
+
+[connection signal="pressed" from="Creator/GraphEdit/Input/VBoxContainer/HBoxContainer/Remove" to="Creator/GraphEdit/Input" method="_on_Remove_pressed"]
+[connection signal="pressed" from="Creator/GraphEdit/Input/VBoxContainer/HBoxContainer/Add" to="Creator/GraphEdit/Input" method="_on_Add_pressed"]
+[connection signal="pressed" from="Creator/GraphEdit/Output/VBoxContainer/HBoxContainer/Remove" to="Creator/GraphEdit/Output" method="_on_Remove_pressed"]
+[connection signal="pressed" from="Creator/GraphEdit/Output/VBoxContainer/HBoxContainer/Add" to="Creator/GraphEdit/Output" method="_on_Add_pressed"]

@@ -14,6 +14,19 @@ func Runner():
 		parts[amount] = 0
 	Blocker()
 
+func RCM():
+	var menu = self.get_node("/root/UI/Right Click Menu")
+	menu.add_item("Input", 0)
+	menu.add_item("Output", 1)
+	menu.add_item("NOT", 2)
+	menu.add_item("AND", 3)
+	menu.add_item("NAND", 4)
+	menu.add_item("OR", 5)
+	menu.add_item("NOR", 6)
+	menu.add_item("XOR", 7)
+	menu.add_item("XNOR", 8)
+	menu.add_item("Start", 9)
+
 func Connector(mode, from, from_port, to, to_port):
 	if (mode == 'Connect'):
 		for item in self.get_node("/root/UI/Interface").get_connection_list():
@@ -34,6 +47,7 @@ func Adder(item):
 				print ('You reached max amount of input elements.')
 				self.get_node("/root/UI/Menu/Input").text = 'MAX Input reached...'
 				self.get_node("/root/UI/Menu/Input").disabled = true
+		else: return
 	elif (item == 'Output'):
 		if (parts[1] < limits[1]):
 			Part = SCHEMATIC.get_node(item).duplicate()
@@ -42,6 +56,7 @@ func Adder(item):
 				print ('You reached max amount of output elements.')
 				self.get_node("/root/UI/Menu/Output").text = 'MAX Output reached...'
 				self.get_node("/root/UI/Menu/Output").disabled = true
+		else: return
 	else:
 		Part = SCHEMATIC.get_node(item).duplicate()
 	self.get_node("/root/UI/Interface").add_child(Part)
