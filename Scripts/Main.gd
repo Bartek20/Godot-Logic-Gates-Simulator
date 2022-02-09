@@ -4,7 +4,7 @@ extends Control
 
 #####
 #
-# Program Startup
+# Program Startup & Input Event hander
 #
 #####
 func _ready():
@@ -70,20 +70,22 @@ func _on_Clear_Items_pressed():
 #
 #####
 func _on_Start_pressed():
-	#Logic.Worker()
-	#Logic.Worker()
-	pass
+	for _i in range(0,2): Logic.Worker()
 
-
+#####
+#
+# Handling RCM (Right Click Menu)
+#
+#####
 func _on_Right_Click_Menu_id_pressed(id):
 	match(id):
-		0: Global.Adder('Input')
-		1: Global.Adder('Output')
-		2: Global.Adder('NOT')
-		3: Global.Adder('AND')
-		4: Global.Adder('NAND')
-		5: Global.Adder('OR')
-		6: Global.Adder('NOR')
-		7: Global.Adder('XOR')
-		8: Global.Adder('XNOR')
-		#9: for _i in range(0,2): Logic.Worker()
+		0: Global.Adder('Input', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		1: Global.Adder('Output', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		2: Global.Adder('NOT', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		3: Global.Adder('AND', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		4: Global.Adder('NAND', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		5: Global.Adder('OR', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		6: Global.Adder('NOR', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		7: Global.Adder('XOR', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		8: Global.Adder('XNOR', EventHandler.mouse_position.x - 350, EventHandler.mouse_position.y - 100)
+		9: for _i in range(0,2): Logic.Worker()

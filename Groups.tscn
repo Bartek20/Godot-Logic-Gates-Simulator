@@ -26,9 +26,8 @@ use_snap = false
 minimap_enabled = false
 
 [node name="Input" type="GraphNode" parent="Creator/GraphEdit"]
-margin_top = 60.0
 margin_right = 130.0
-margin_bottom = 120.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 130, 60 )
 mouse_filter = 1
 title = "Input"

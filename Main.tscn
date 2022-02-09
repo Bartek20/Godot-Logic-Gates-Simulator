@@ -10,54 +10,30 @@ font_data = ExtResource( 2 )
 font_data = ExtResource( 2 )
 
 [node name="UI" type="Control"]
+rect_min_size = Vector2( 1024, 600 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Interface" type="GraphEdit" parent="."]
-anchor_left = 1.0
+[node name="Menu" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_left = 200.0
-margin_right = 1024.0
-margin_bottom = 600.0
-rect_min_size = Vector2( 824, 600 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-right_disconnects = true
-scroll_offset = Vector2( -291, 0 )
-snap_distance = 25
-zoom_min = 1.0
-zoom_max = 1.0
-zoom_step = 0.5
-minimap_enabled = false
+margin_bottom = 27.0
+rect_min_size = Vector2( 0, 50 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu" type="VBoxContainer" parent="."]
-margin_right = 200.0
-margin_bottom = 600.0
-rect_min_size = Vector2( 200, 0 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Limiter" type="HSeparator" parent="Menu"]
-margin_right = 200.0
-margin_bottom = 10.0
-rect_min_size = Vector2( 0, 10 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+[node name="Limiter" type="VSeparator" parent="Menu"]
+margin_right = 4.0
+margin_bottom = 50.0
 
 [node name="Limit" type="Label" parent="Menu"]
-margin_top = 14.0
-margin_right = 200.0
-margin_bottom = 44.0
+margin_left = 8.0
+margin_top = 10.0
+margin_right = 183.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 175, 30 )
 custom_fonts/font = SubResource( 1 )
 text = "0 / 20"
@@ -67,137 +43,26 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="In - Out" type="HSeparator" parent="Menu"]
-margin_top = 48.0
-margin_right = 200.0
-margin_bottom = 58.0
-rect_min_size = Vector2( 0, 10 )
+[node name="Commands" type="VSeparator" parent="Menu"]
+margin_left = 187.0
+margin_right = 191.0
+margin_bottom = 50.0
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Input" type="Button" parent="Menu"]
-margin_top = 62.0
-margin_right = 200.0
-margin_bottom = 88.0
-custom_fonts/font = SubResource( 2 )
-text = "Input"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Output" type="Button" parent="Menu"]
-margin_top = 92.0
-margin_right = 200.0
-margin_bottom = 118.0
-custom_fonts/font = SubResource( 2 )
-text = "Output"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Logic Gates" type="HSeparator" parent="Menu"]
-margin_top = 122.0
-margin_right = 200.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 0, 10 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="NOT" type="Button" parent="Menu"]
-margin_top = 136.0
-margin_right = 200.0
-margin_bottom = 176.0
-rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 2 )
-text = "NOT"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="AND" type="Button" parent="Menu"]
-margin_top = 180.0
-margin_right = 200.0
-margin_bottom = 220.0
-rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 2 )
-text = "AND"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="NAND" type="Button" parent="Menu"]
-margin_top = 224.0
-margin_right = 200.0
-margin_bottom = 264.0
-rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 2 )
-text = "NAND"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="OR" type="Button" parent="Menu"]
-margin_top = 268.0
-margin_right = 200.0
-margin_bottom = 308.0
-rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 2 )
-text = "OR"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="NOR" type="Button" parent="Menu"]
-margin_top = 312.0
-margin_right = 200.0
-margin_bottom = 352.0
-rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 2 )
-text = "NOR"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="XOR" type="Button" parent="Menu"]
-margin_top = 356.0
-margin_right = 200.0
-margin_bottom = 396.0
-rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 2 )
-text = "XOR"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="XNOR" type="Button" parent="Menu"]
-margin_top = 400.0
-margin_right = 200.0
-margin_bottom = 440.0
-rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 2 )
-text = "XNOR"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Commands" type="HSeparator" parent="Menu"]
-margin_top = 444.0
-margin_right = 200.0
-margin_bottom = 454.0
-rect_min_size = Vector2( 0, 10 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Label" type="Label" parent="Menu"]
+margin_left = 195.0
+margin_top = 18.0
+margin_right = 537.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
 
 [node name="Clear Connections" type="Button" parent="Menu"]
-margin_top = 458.0
-margin_right = 200.0
-margin_bottom = 498.0
-rect_min_size = Vector2( 0, 40 )
+margin_left = 541.0
+margin_right = 741.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 40 )
 custom_fonts/font = SubResource( 2 )
 text = "Clear Connections"
 __meta__ = {
@@ -205,10 +70,10 @@ __meta__ = {
 }
 
 [node name="Clear Items" type="Button" parent="Menu"]
-margin_top = 502.0
-margin_right = 200.0
-margin_bottom = 542.0
-rect_min_size = Vector2( 0, 40 )
+margin_left = 745.0
+margin_right = 945.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 40 )
 custom_fonts/font = SubResource( 2 )
 text = "Clear Items"
 __meta__ = {
@@ -216,14 +81,177 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="Menu"]
-margin_top = 546.0
-margin_right = 200.0
-margin_bottom = 586.0
-rect_min_size = Vector2( 0, 40 )
+margin_left = 949.0
+margin_right = 1024.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 75, 40 )
 rect_clip_content = true
 hint_tooltip = "Sprawdź połączenie bramek logicznych"
 custom_fonts/font = SubResource( 2 )
 text = "Start"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Interface" type="GraphEdit" parent="."]
+margin_top = 50.0
+margin_right = 1024.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 824, 550 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+right_disconnects = true
+scroll_offset = Vector2( -291, -50 )
+snap_distance = 25
+zoom_min = 1.0
+zoom_max = 1.0
+zoom_step = 0.5
+minimap_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Side Menu" type="VBoxContainer" parent="."]
+margin_left = -300.0
+margin_right = -100.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 200, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Limiter" type="HSeparator" parent="Side Menu"]
+margin_right = 200.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="In - Out" type="HSeparator" parent="Side Menu"]
+margin_top = 14.0
+margin_right = 200.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 0, 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="Button" parent="Side Menu"]
+margin_top = 28.0
+margin_right = 200.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 2 )
+text = "Input"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Output" type="Button" parent="Side Menu"]
+margin_top = 58.0
+margin_right = 200.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 2 )
+text = "Output"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Logic Gates" type="HSeparator" parent="Side Menu"]
+margin_top = 88.0
+margin_right = 200.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NOT" type="Button" parent="Side Menu"]
+margin_top = 102.0
+margin_right = 200.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "NOT"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AND" type="Button" parent="Side Menu"]
+margin_top = 146.0
+margin_right = 200.0
+margin_bottom = 186.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "AND"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NAND" type="Button" parent="Side Menu"]
+margin_top = 190.0
+margin_right = 200.0
+margin_bottom = 230.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "NAND"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OR" type="Button" parent="Side Menu"]
+margin_top = 234.0
+margin_right = 200.0
+margin_bottom = 274.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "OR"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NOR" type="Button" parent="Side Menu"]
+margin_top = 278.0
+margin_right = 200.0
+margin_bottom = 318.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "NOR"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="XOR" type="Button" parent="Side Menu"]
+margin_top = 322.0
+margin_right = 200.0
+margin_bottom = 362.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "XOR"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="XNOR" type="Button" parent="Side Menu"]
+margin_top = 366.0
+margin_right = 200.0
+margin_bottom = 406.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "XNOR"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Commands" type="HSeparator" parent="Side Menu"]
+margin_top = 410.0
+margin_right = 200.0
+margin_bottom = 420.0
+rect_min_size = Vector2( 0, 10 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -240,18 +268,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="connection_request" from="Interface" to="." method="_on_Interface_connection_request"]
-[connection signal="disconnection_request" from="Interface" to="." method="_on_Interface_disconnection_request"]
-[connection signal="pressed" from="Menu/Input" to="." method="_on_Input_pressed"]
-[connection signal="pressed" from="Menu/Output" to="." method="_on_Output_pressed"]
-[connection signal="pressed" from="Menu/NOT" to="." method="_on_NOT_pressed"]
-[connection signal="pressed" from="Menu/AND" to="." method="_on_AND_pressed"]
-[connection signal="pressed" from="Menu/NAND" to="." method="_on_NAND_pressed"]
-[connection signal="pressed" from="Menu/OR" to="." method="_on_OR_pressed"]
-[connection signal="pressed" from="Menu/NOR" to="." method="_on_NOR_pressed"]
-[connection signal="pressed" from="Menu/XOR" to="." method="_on_XOR_pressed"]
-[connection signal="pressed" from="Menu/XNOR" to="." method="_on_XNOR_pressed"]
 [connection signal="pressed" from="Menu/Clear Connections" to="." method="_on_Clear_Connections_pressed"]
 [connection signal="pressed" from="Menu/Clear Items" to="." method="_on_Clear_Items_pressed"]
 [connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
+[connection signal="connection_request" from="Interface" to="." method="_on_Interface_connection_request"]
+[connection signal="disconnection_request" from="Interface" to="." method="_on_Interface_disconnection_request"]
+[connection signal="pressed" from="Side Menu/Input" to="." method="_on_Input_pressed"]
+[connection signal="pressed" from="Side Menu/Output" to="." method="_on_Output_pressed"]
+[connection signal="pressed" from="Side Menu/NOT" to="." method="_on_NOT_pressed"]
+[connection signal="pressed" from="Side Menu/AND" to="." method="_on_AND_pressed"]
+[connection signal="pressed" from="Side Menu/NAND" to="." method="_on_NAND_pressed"]
+[connection signal="pressed" from="Side Menu/OR" to="." method="_on_OR_pressed"]
+[connection signal="pressed" from="Side Menu/NOR" to="." method="_on_NOR_pressed"]
+[connection signal="pressed" from="Side Menu/XOR" to="." method="_on_XOR_pressed"]
+[connection signal="pressed" from="Side Menu/XNOR" to="." method="_on_XNOR_pressed"]
 [connection signal="id_pressed" from="Right Click Menu" to="." method="_on_Right_Click_Menu_id_pressed"]
